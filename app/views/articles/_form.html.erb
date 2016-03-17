@@ -1,0 +1,17 @@
+<%= form_for @article do |a| %>
+
+  <% if @article.errors.any?%>
+    <% @article.errors.full_messages.each do |message| %>
+      <p><%= message %></p>
+    <% end %>
+  <% end %>
+
+  <%= a.label :title %>
+  <%= a.text_field :title, placeholder: 'Enter Title' %>
+  </br>
+  <%= a.label :body %>
+  <%= a.text_field :body, placeholder: 'Write Your Article!' %>
+  </br>
+
+  <%= a.submit "" %>
+<% end %>
