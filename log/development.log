@@ -3171,3 +3171,79 @@ Processing by ArticlesController#show as HTML
   [1m[36mArticle Load (0.0ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 11]]
   Rendered articles/show.html.erb within layouts/application (4.0ms)
 Completed 200 OK in 128ms (Views: 123.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2016-03-20 12:16:42 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.erb within layouts/application (47.5ms)
+Completed 200 OK in 1381ms (Views: 1320.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2016-03-20 12:16:45 -0400
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 126ms (Views: 124.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/articles/new" for ::1 at 2016-03-20 12:16:58 -0400
+Processing by ArticlesController#new as HTML
+  Rendered articles/_form.html.erb (264.4ms)
+  Rendered articles/new.html.erb within layouts/application (283.0ms)
+Completed 200 OK in 380ms (Views: 380.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/articles" for ::1 at 2016-03-20 12:17:05 -0400
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K54CLhpseliY+bMOE8zbV5dcd0W+pOYzHSVYbLiFWMDDDy4sB6JcSJ7y5xS2Xd2S+925+SsX67mp8gmfVS/EEg==", "article"=>{"title"=>"yfuyt", "body"=>"hhgvjhygyf"}, "commit"=>""}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('yfuyt') LIMIT 1[0m
+  [1m[35mArticle Exists (0.0ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."body") = LOWER('hhgvjhygyf') LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "yfuyt"], ["body", "hhgvjhygyf"], ["created_at", "2016-03-20 16:17:06.121496"], ["updated_at", "2016-03-20 16:17:06.121496"]]
+  [1m[35m (12.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/articles/12
+Completed 302 Found in 262ms (ActiveRecord: 12.0ms)
+
+
+Started GET "/articles/12" for ::1 at 2016-03-20 12:17:06 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mArticle Load (0.0ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 12]]
+  Rendered articles/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 161ms (Views: 114.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/" for ::1 at 2016-03-20 12:17:17 -0400
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.0ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 154ms (Views: 149.5ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/articles/12" for ::1 at 2016-03-20 12:17:26 -0400
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"22eZi65pidbsWYwWcO0IEgOhACh/52esa8ER8YE1imkz9rWJs6evxupS2AzVfA7XbyDOlOpUaibfFkACbJ8Wuw==", "id"=>"12"}
+  [1m[36mArticle Load (5.0ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.6ms)[0m  [1mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 12]]
+  [1m[35m (12.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/articles
+Completed 302 Found in 40ms (ActiveRecord: 19.6ms)
+
+
+Started GET "/articles" for ::1 at 2016-03-20 12:17:26 -0400
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 152ms (Views: 147.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/articles/11/edit" for ::1 at 2016-03-20 12:17:35 -0400
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 11]]
+  Rendered articles/_form.html.erb (0.0ms)
+  Rendered articles/edit.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 144ms (Views: 139.6ms | ActiveRecord: 0.2ms)
